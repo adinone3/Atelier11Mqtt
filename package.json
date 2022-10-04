@@ -1,0 +1,16 @@
+{
+  "name": "adrian_catuneanu_laboratoire3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian Catuneanu",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mqtt": "^4.3.7"
+  }
+}
