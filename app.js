@@ -64,8 +64,16 @@ client.on('connect', function () {
 client.subscribe('MODULE/#');
 
 client.on('message', function (topic, message) {
-  console.log(topic.toString());
-  console.log(message.toString());
+  var string = "";
+  var nombreModule = "";
+
+  string = topic.toString().slice(0, 7);
+
+  if (string == "MODULE/") {
+    nombreModule = topic.toString().slice(7);
+    etat[parseInt(nombreModule)] = message.toString();
+    //console.log(nombreModule); ligne de debogage
+  }
 });
 
 app.listen(8080);
