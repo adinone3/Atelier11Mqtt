@@ -3,7 +3,7 @@ var app = express();
 var etat = ["", "Off", "Off", "Off", "Off", "Off", "Off"];
 var position = 0;
 var mqtt = require('mqtt');
-var client  = mqtt.connect('mqtt://127.0.0.1:1883');
+var client = mqtt.connect('mqtt://127.0.0.1:1883');
 
 
 app.set('view engine', 'ejs');
@@ -57,8 +57,11 @@ app.use(function (req, res) {
 });
 
 client.on('connect', function () {
-    console.log("MQTT connecté !");
+  console.log("MQTT connecté !");
+  client.publish('MODULE', 'le serveur js vous dit bonjour');
 });
+
+client.subscribe('MODULE/#');
 
 app.listen(8080);
 console.log("Le serveur est lance sur le port 8080");
